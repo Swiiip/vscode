@@ -4514,13 +4514,25 @@ export enum TextEditorCursorStyle {
 	 */
 	Line = 1,
 	/**
+	 * As a thin vertical line (sitting between two characters).
+	 */
+	LineThin = 2,
+	/**
 	 * As a block (sitting on top of a character).
 	 */
-	Block = 2,
+	Block = 3,
+	/**
+	 * As an outlined block (sitting on top of a character).
+	 */
+	BlockOutline = 4,
 	/**
 	 * As a horizontal line (sitting under a character).
 	 */
-	Underline = 3
+	Underline = 5,
+	/**
+	 * As a thin horizontal line (sitting under a character).
+	 */
+	UnderlineThin = 6
 }
 
 /**
@@ -4559,10 +4571,16 @@ export enum TextEditorCursorBlinkingStyle {
 export function cursorStyleToString(cursorStyle: TextEditorCursorStyle): string {
 	if (cursorStyle === TextEditorCursorStyle.Line) {
 		return 'line';
+	} else if (cursorStyle === TextEditorCursorStyle.LineThin) {
+		return 'line-thin';
 	} else if (cursorStyle === TextEditorCursorStyle.Block) {
 		return 'block';
+	} else if (cursorStyle === TextEditorCursorStyle.BlockOutline) {
+		return 'block-outline';
 	} else if (cursorStyle === TextEditorCursorStyle.Underline) {
 		return 'underline';
+	} else if (cursorStyle === TextEditorCursorStyle.UnderlineThin) {
+		return 'underline-thin';
 	} else {
 		throw new Error('cursorStyleToString: Unknown cursorStyle');
 	}
